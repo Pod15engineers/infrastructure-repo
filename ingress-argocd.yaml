@@ -3,26 +3,22 @@ kind: Ingress
 metadata:
   name: argocd-ingress
   annotations:
-    kubernetes.io/ingress.class: "external-nginx"
     cert-manager.io/cluster-issuer: http-01-production
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
-  ingressClassName: external-nginx
+  ingressClassName: nginx
   tls:
-  - hosts:
-    - argocd.pod15engineers.online
-    secretName: argocd-pod15engineers-online
+    - hosts:
+        - argocd.pod15engineers.online
+      secretName: argocd-pod15engineers-online
   rules:
-  - host: argocd.pod15engineers.online
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: argocd-server
-            port:
-              number: 80
-
-              
+    - host: argocd.pod15engineers.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
