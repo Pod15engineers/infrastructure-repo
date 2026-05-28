@@ -12,6 +12,7 @@ TOKEN_URL="https://api.github.com/repos/${REPO}/actions/runners/registration-tok
 
 echo "Requesting registration token for $REPO..."
 
+
 RUNNER_TOKEN=$(curl -s -X POST \
   -H "Authorization: token ${GITHUB_PAT}" \
   "${TOKEN_URL}" | jq -r .token)
