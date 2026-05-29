@@ -69,7 +69,7 @@ jobs:
 
 
         # Note this part depends on the mannaul Dns route 53 to namecheap or godaddy setup.
-        ===================================================================================
+       # ===================================================================================
       - name: 'install kubectl'
         run: |
           curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
