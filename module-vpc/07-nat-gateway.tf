@@ -9,5 +9,5 @@ resource "aws_nat_gateway" "name" {
         Environment = var.environment
     }
 
-    depends_on = [aws_internet_gateway.igw]  # ← also add this
+    depends_on = [aws_internet_gateway.gw]  # ← also add this
 }
